@@ -1,4 +1,4 @@
-local name = "[⭐] 6akzino"
+local name = "[💹💰⭐] 6akzino"
 game.Players["6akzino"].Chatted:Connect(function(message)
 	if message:sub(1, 6) == "!print" then
 		local text = message:sub(8) 
@@ -83,6 +83,14 @@ game.Players["6akzino"].Chatted:Connect(function(message)
 		high.FillColor = Color3.new(0, 0, 0)
 		high.OutlineTransparency = 0
 		high.FillTransparency = 0
+	end
+	if message == "!uno" then
+		game.Players.LocalPlayer.Character.Head.face.Texture = "http://www.roblox.com/asset/?id=7485602656"
+		game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Life is so boring..", "All")
+		wait(1)
+		game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Should probably end it..", "All")
+		wait(1)
+		game.Players.LocalPlayer.Character.Humanoid:Destroy()
 	end
 end)
 while true do
