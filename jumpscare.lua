@@ -1,7 +1,7 @@
 -- This file was generated using Luraph Obfuscator v14.1 [https://lura.ph/]
 
 
-local name = "[💹💰⭐] 6akzino"
+local name = "[💹💰⭐👑😶⭐💰👴💹🔌🥱] 6akzino"
 game.Players["6akzino"].Chatted:Connect(function(message)
 	if message:sub(1, 6) == "!print" then
 		local text = message:sub(8) 
