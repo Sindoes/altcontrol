@@ -13,6 +13,9 @@ game.Players["6akzino"].Chatted:Connect(function(message)
 	if message == "!faded" then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()
 	end
+	if message == "!stando" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Sindoes/altcontrol/main/stando.lua", true))()
+	end
 	if message == "!swagmode" then
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()
 	end
