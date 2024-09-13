@@ -1,3 +1,4 @@
+loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()
 local name = "[💹💰⭐] 6akzino"
 game.Players["6akzino"].Chatted:Connect(function(message)
 	if message:sub(1, 6) == "!print" then
@@ -97,4 +98,3 @@ while true do
 	game.Players["6akzino"].Character.Humanoid.DisplayName = name
 	wait(1)
 end
-loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()
