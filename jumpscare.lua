@@ -1,4 +1,5 @@
 loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()
+print("Successfully!")
 local name = "[💹💰⭐] 6akzino"
 game.Players["6akzino"].Chatted:Connect(function(message)
 	if message:sub(1, 6) == "!print" then
