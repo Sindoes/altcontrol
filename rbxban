@@ -7,6 +7,8 @@ wait(3)
 game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("and fat", "All")
 wait(6)
 game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("b>i>t>c>h", "All")
+wait(7)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("badass", "All")
 
 game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("zahma", "All")
 wait(1)
