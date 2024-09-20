@@ -1,0 +1,66 @@
+FLYING = true
+local BG = Instance.new('BodyGyro')
+local BV = Instance.new('BodyVelocity')
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild('HumanoidRootPart')
+
+BG.P = 9e4
+BG.Parent = humanoidRootPart
+BV.Parent = humanoidRootPart
+BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+BG.CFrame = humanoidRootPart.CFrame
+BV.velocity = Vector3.new(0, 0, 0)
+BV.maxForce = Vector3.new(9e9, 9e9, 9e9)
+
+local CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+local SPEED = 50
+local lCONTROL = {F = 0, B = 0, L = 0, R = 0}
+
+local function updateFly()
+    if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0 then
+        SPEED = 50
+    elseif SPEED ~= 0 then
+        SPEED = 0
+    end
+    
+    local camera = workspace.CurrentCamera
+    if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0 then
+        BV.velocity = ((camera.CFrame.LookVector * (CONTROL.F + CONTROL.B)) + 
+                      ((camera.CFrame * CFrame.new(CONTROL.L + CONTROL.R, 
+                      (CONTROL.F + CONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - camera.CFrame.p)) * SPEED
+        lCONTROL = {F = CONTROL.F, B = CONTROL.B, L = CONTROL.L, R = CONTROL.R}
+    elseif SPEED ~= 0 then
+        BV.velocity = ((camera.CFrame.LookVector * (lCONTROL.F + lCONTROL.B)) + 
+                      ((camera.CFrame * CFrame.new(lCONTROL.L + lCONTROL.R, 
+                      (lCONTROL.F + lCONTROL.B + CONTROL.Q + CONTROL.E) * 0.2, 0).p) - camera.CFrame.p)) * SPEED
+    else
+        BV.velocity = Vector3.new(0, 0, 0)
+    end
+    
+    BG.CFrame = camera.CFrame
+end
+
+task.spawn(function()
+    repeat wait()
+        if not FLYING then break end
+        
+        if humanoidRootPart:FindFirstChildOfClass('Humanoid') then
+            humanoidRootPart:FindFirstChildOfClass('Humanoid').PlatformStand = true
+        end
+        
+        updateFly()
+    until not FLYING
+    
+    -- Reset values when flight stops
+    CONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+    lCONTROL = {F = 0, B = 0, L = 0, R = 0, Q = 0, E = 0}
+    SPEED = 0
+    
+    BG:Destroy()
+    BV:Destroy()
+    
+    if humanoidRootPart:FindFirstChildOfClass('Humanoid') then
+        humanoidRootPart:FindFirstChildOfClass('Humanoid').PlatformStand = false
+    end
+end)
